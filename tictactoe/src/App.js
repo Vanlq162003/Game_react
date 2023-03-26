@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Winner } from "./helper";
+import { calculateWinner } from "./helper";
 
 import Board from "./components/board"
 
@@ -10,17 +10,31 @@ import Board from "./components/board"
 const App = (props) => {
     const [board , setBoard] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
-    const winner = Winner(board)
+    const winner = calculateWinner(board)
 
 
-    const handleClick = () => {}
+    const handleClick = (index) => {
+        const boardCopy = [...board];
+        if(winner || boardCopy[index]) return
+        boardCopy[index] = xIsNext ? "X" : "O";
+        setBoard(boardCopy);
+        setXIsNext(!xIsNext);
+        console.log(winner)
+    }
+    const handleResetGame = () => {
+        setBoard(Array(9).fill(null))
+        setXIsNext(true);
+    }
 
 
     return (
-    <div className="flex justify-center items-center w-full h-screen bg-gray-100">
-        <Board  cells ={board}  onClick={handleClick}></Board>
+    <div className="h-[100vh] flex justify-center items-center">
+        <Board  cells ={board}  onClick={handleClick}></Board> 
+        <button className="reset-game" onClick={handleResetGame}>Reset Game</button>
+        <div>{winner ? `winner is ${winner}`:""}</div>
+        
     </div>
-    )
+    );
 }
 
 export default App
