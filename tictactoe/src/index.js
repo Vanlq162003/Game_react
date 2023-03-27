@@ -1,6 +1,7 @@
 import React, {StrictMode} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+// import MyComponent from './test'
 import "./style.css"
 // Bước 2: Khai báo DOM root
 const root = document.querySelector("#root")

@@ -14,7 +14,8 @@ for(let i = 0; i < lines.length; i++){
     var [a,b,c] = lines[i];
 
     if(Squares[a] && Squares[a] === Squares[b]  && Squares[a] === Squares[c]){
-        return Squares[a];
+        return Squares[a],Squares[b],Squares[c];
+
     }
 }
 return null;

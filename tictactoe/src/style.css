@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind src;
+
+.is-x{
+    color: black;
+}
+.is-o{
+    color: red;
+}
+@keyframes bg-color {
+    from{
+        background-color: #14bdac ;
+    }
+    to{
+        background-color: red;
+    }
+}
+
+button{
+    border: 3px #14bdac solid;
+    color: gray;
+}
+
+
+
